@@ -1,0 +1,20 @@
+{
+    "language": "English",
+    "@language": {
+      "description": "The Current Language"
+    },
+
+    "header": "Hi There",
+    "@header": {
+      "description": "The Current Language"
+    },
+    "others": "Others",
+    "@others": {
+      "description": "The Current Language"
+    },
+
+    "way":"English",
+    "@way": {
+      "description": "The Current Language"
+    }
+}

@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starter/utils/colors.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -218,6 +224,10 @@ class Home extends StatelessWidget {
     );
   }
 
+  var val;
+
+  bool _value = false;
+
   ListView forDrawer(BuildContext context) {
     return ListView(
       // Important: Remove any padding from the ListView.
@@ -230,16 +240,60 @@ class Home extends StatelessWidget {
           child: Text('Hi There'),
         ),
         ListTile(
-          title: const Text('Item 1'),
+          title: const Text('Langauage'),
           onTap: () {
-            Navigator.pop(context);
+            showDialog(
+                context: context,
+                builder: (BuildContext contexts) {
+                  return AlertDialog(
+                    title: Text('Choose langauage',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                        )),
+                    content: Container(
+                      height: MediaQuery.of(context).size.height / 4.5,
+                      child: ListView(
+                        shrinkWrap: true,
+                        children: [
+                          ListTile(
+                            title: Text('Nepali'),
+                            leading: Radio(
+                              value: 1,
+                              groupValue: val,
+                              onChanged: (value) {
+                                setState(() {
+                                  val = value;
+                                });
+                                Navigator.pop(contexts);
+                                // val = sd;
+                              },
+                            ),
+                          ),
+                          ListTile(
+                            title: Text('English'),
+                            leading: Radio(
+                              value: 2,
+                              groupValue: val,
+                              onChanged: (value) {
+                                setState(() {
+                                  val = value;
+                                });
+                                Navigator.pop(contexts);
+                                // val = sd;
+                              },
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                });
           },
         ),
         ListTile(
-          title: const Text('Item 2'),
-          onTap: () {
-            Navigator.pop(context);
-          },
+          title: const Text('Others'),
+          onTap: () {},
         ),
       ],
     );
