@@ -278,7 +278,11 @@ class _HomeState extends State<Home> {
                                 print(val);
                                 // });
                                 localProvider.setValue(val);
-                                Navigator.pop(contexts);
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(forLanguage(val));
+                                Navigator.of(context).pushNamedAndRemoveUntil(
+                                    '/home', ModalRoute.withName('/home'));
+
                                 // val = sd;
                                 localProvider.setLocale(L10n.all[1]);
                               },
@@ -299,7 +303,10 @@ class _HomeState extends State<Home> {
                                 // });
                                 localProvider.setLocale(L10n.all[0]);
                                 localProvider.setValue(val);
-                                Navigator.pop(contexts);
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(forLanguage(val));
+                                Navigator.of(context).pushNamedAndRemoveUntil(
+                                    '/home', ModalRoute.withName('/home'));
                                 // val = sd;
                               },
                             ),
@@ -320,5 +327,16 @@ class _HomeState extends State<Home> {
         ),
       ],
     );
+  }
+
+  forLanguage(data) {
+    final showsnackbar = SnackBar(
+      content: data == 'en'
+          ? Text('Language Changed to English')
+          : Text('Language Changed to Nepali'),
+      duration: Duration(seconds: 5),
+    );
+
+    return showsnackbar;
   }
 }

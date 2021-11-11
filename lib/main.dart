@@ -29,9 +29,9 @@ class MyApp extends StatelessWidget {
             supportedLocales: L10n.all,
             localizationsDelegates: [
               AppLocalizations.delegate, // Add this line
-              GlobalMaterialLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate, //put all the material widget translation
               GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate, //ut all the cupertino widget translation
             ],
             initialRoute: '/',
             routes: {'/': (context) => Landing(), '/home': (context) => Home()},
