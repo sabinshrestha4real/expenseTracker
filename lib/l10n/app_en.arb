@@ -1,20 +1,77 @@
 {
-    "language": "English",
+    "language": "Language",
     "@language": {
       "description": "The Current Language"
+    },
+     "chooseLanguage": "Choose Language",
+    "@chooseLanguage": {
+      "description": "choose language"
     },
 
     "header": "Hi There",
     "@header": {
-      "description": "The Current Language"
+      "description": "Greetings"
     },
     "others": "Others",
     "@others": {
-      "description": "The Current Language"
+      "description": "Just others"
     },
 
-    "way":"English",
+    "way":"Language",
     "@way": {
-      "description": "The Current Language"
+      "description": "The Current Languasge"
+    },
+
+    "totalAmount": "Total Amount",
+     "@totalAmount": {
+      "description": "The total amount"
+    },
+    "totalExpenses": "Expenses",
+     "@totalExpenses": {
+      "description": "The total expenses"
+    },
+
+    "totalDeposit": "Deposit",
+     "@totalDeposit": {
+      "description": "The total deposit"
+    },
+
+    "addExpenses": "Add Expenses",
+    "@addExpenses": {
+      "description": "Adding expenses"
+    },
+    "addDeposit": "Add Deposit",
+    "@addDeposit": {
+      "description": "Adding deposit"
+    },
+    "viewChart": "View Chart",
+    "@viewChart": {
+      "description": "displaying chart"
+    },
+    "edit": "Edit",
+    "@edit": {
+      "description": "Editing data"
+    },
+
+    "landing1": "Track Your",
+    "@landing1": {
+      "description": "Landing message"
+    },
+    "landing2": "Expenses...",
+    "@landing2": {
+      "description": "Landing message"
+    },
+    "landingBtn": "Lets go",
+    "@landingBtn": {
+      "description": "landing button"
     }
+
+
+
+
+
+
+
+
+
 }

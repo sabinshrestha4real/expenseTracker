@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:starter/utils/colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PotraitMode extends StatelessWidget {
   const PotraitMode({
@@ -31,7 +32,7 @@ class PotraitMode extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.only(left: 20.0),
-            child: Text("Track Your",
+            child: Text(AppLocalizations.of(context)!.landing1,
                 style: GoogleFonts.poppins(
                     fontSize: 36,
                     color: Colors.white,
@@ -40,7 +41,7 @@ class PotraitMode extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(left: 20.0),
             child: Text(
-              "Expenses...",
+              AppLocalizations.of(context)!.landing2,
               style: GoogleFonts.poppins(
                   fontSize: 36,
                   color: Colors.white,
@@ -66,7 +67,7 @@ class PotraitMode extends StatelessWidget {
                   Navigator.pushNamed(context, '/home');
                 },
                 child: Text(
-                  "Lets Go",
+                  AppLocalizations.of(context)!.landingBtn,
                   style: GoogleFonts.poppins(
                       fontSize: 18,
                       color: backgroundColor,

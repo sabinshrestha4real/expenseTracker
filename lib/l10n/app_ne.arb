@@ -1,6 +1,19 @@
 {
     "langauge": "मानक नेपाली",
+    "chooseLanguage": "भाषा छान्नुहोस्",
     "header": "नमस्ते",
     "others": "अन्य",
-    "way": "मानक नेपाली"
+    "way": "भाषा",
+    "totalAmount": "कुल रकम",
+    "totalExpenses": "खर्च",
+    "totalDeposit": "जम्मा",
+    "addExpenses": "खर्च थप्नुहोस्",
+    "addDeposit": "निक्षेप थप्नुहोस्",
+    "viewChart": "चार्ट हेर्नुहोस्",
+    "edit": "सम्पादन गर्नुहोस्",
+    "landing1": "आफ्नो खर्च",
+    "landing2": "ट्र्याक गर्नुहोस्...",
+    "landingBtn": "प्रवेश गर्नुहोस्"
+
+
 }

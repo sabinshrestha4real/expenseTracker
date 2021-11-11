@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:starter/l10n/l10n.dart';
+import 'package:starter/models/provider/translate.dart';
 import 'package:starter/utils/colors.dart';
+// import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -63,7 +68,7 @@ class _HomeState extends State<Home> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'Total Amount',
+                      AppLocalizations.of(context)!.totalAmount,
                       style: GoogleFonts.poppins(
                           fontSize: 18,
                           color: Colors.white,
@@ -87,7 +92,7 @@ class _HomeState extends State<Home> {
                     Column(
                       children: [
                         Text(
-                          'Expenses',
+                          AppLocalizations.of(context)!.totalExpenses,
                           style: GoogleFonts.poppins(
                               fontSize: 18,
                               color: Colors.white,
@@ -105,7 +110,7 @@ class _HomeState extends State<Home> {
                     Column(
                       children: [
                         Text(
-                          'Deposit',
+                          AppLocalizations.of(context)!.totalDeposit,
                           style: GoogleFonts.poppins(
                               fontSize: 18,
                               color: Colors.white,
@@ -152,7 +157,7 @@ class _HomeState extends State<Home> {
                           // Navigator.pushNamed(context, '/home');
                         },
                         child: Text(
-                          "Add Expenses",
+                          AppLocalizations.of(context)!.addExpenses,
                           style: GoogleFonts.poppins(
                               fontSize: 18,
                               color: Colors.white,
@@ -170,7 +175,7 @@ class _HomeState extends State<Home> {
                           // Navigator.pushNamed(context, '/home');
                         },
                         child: Text(
-                          "Add Deposit",
+                          AppLocalizations.of(context)!.addDeposit,
                           style: GoogleFonts.poppins(
                               fontSize: 18,
                               color: Colors.white,
@@ -188,7 +193,7 @@ class _HomeState extends State<Home> {
                           // Navigator.pushNamed(context, '/home');
                         },
                         child: Text(
-                          "View Chart",
+                          AppLocalizations.of(context)!.viewChart,
                           style: GoogleFonts.poppins(
                               fontSize: 18,
                               color: Colors.white,
@@ -206,7 +211,7 @@ class _HomeState extends State<Home> {
                           // Navigator.pushNamed(context, '/home');
                         },
                         child: Text(
-                          "Modify",
+                          AppLocalizations.of(context)!.edit,
                           style: GoogleFonts.poppins(
                               fontSize: 18,
                               color: Colors.white,
@@ -229,61 +234,79 @@ class _HomeState extends State<Home> {
   bool _value = false;
 
   ListView forDrawer(BuildContext context) {
+    final localProvider = Provider.of<Translate>(context, listen: false);
+    // final local = localProvider.locale;
     return ListView(
       // Important: Remove any padding from the ListView.
       padding: EdgeInsets.zero,
       children: [
-        const DrawerHeader(
+        DrawerHeader(
           decoration: BoxDecoration(
             color: backgroundColor,
           ),
-          child: Text('Hi There'),
+          child: Text(AppLocalizations.of(context)!.header),
         ),
         ListTile(
-          title: const Text('Langauage'),
+          title: Text(
+            AppLocalizations.of(context)!.way,
+          ),
           onTap: () {
             showDialog(
                 context: context,
                 builder: (BuildContext contexts) {
                   return AlertDialog(
-                    title: Text('Choose langauage',
+                    title: Text(AppLocalizations.of(context)!.chooseLanguage,
                         style: TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,
                         )),
                     content: Container(
-                      height: MediaQuery.of(context).size.height / 4.5,
+                      height: MediaQuery.of(context).size.height / 4,
+                      width: MediaQuery.of(context).size.width / 2.5,
                       child: ListView(
-                        shrinkWrap: true,
+                        shrinkWrap: true, // new line
+                        // physics: NeverScrollableScrollPhysics(),
                         children: [
-                          ListTile(
-                            title: Text('Nepali'),
-                            leading: Radio(
-                              value: 1,
-                              groupValue: val,
-                              onChanged: (value) {
-                                setState(() {
-                                  val = value;
-                                });
-                                Navigator.pop(contexts);
-                                // val = sd;
-                              },
-                            ),
-                          ),
                           ListTile(
                             title: Text('English'),
                             leading: Radio(
-                              value: 2,
-                              groupValue: val,
+                              value: "en",
+                              groupValue: localProvider.changeValue,
                               onChanged: (value) {
-                                setState(() {
-                                  val = value;
-                                });
+                                // setState(() {
+                                val = value.toString();
+                                print(val);
+                                // });
+                                localProvider.setValue(val);
+                                Navigator.pop(contexts);
+                                // val = sd;
+                                localProvider.setLocale(L10n.all[1]);
+                              },
+                            ),
+                            // onTap: () {
+                            //   localProvider.setLocale(L10n.all[1]);
+                            // },
+                          ),
+                          ListTile(
+                            title: Text('Nepali'),
+                            leading: Radio(
+                              value: "ne",
+                              groupValue: localProvider.changeValue,
+                              onChanged: (value) {
+                                // setState(() {
+                                val = value.toString();
+                                print(val);
+                                // });
+                                localProvider.setLocale(L10n.all[0]);
+                                localProvider.setValue(val);
                                 Navigator.pop(contexts);
                                 // val = sd;
                               },
                             ),
-                          )
+                            // onTap: () {
+                            //   localProvider.setLocale(L10n.all[0]);
+                            // },
+                          ),
                         ],
                       ),
                     ),
@@ -292,7 +315,7 @@ class _HomeState extends State<Home> {
           },
         ),
         ListTile(
-          title: const Text('Others'),
+          title: Text(AppLocalizations.of(context)!.others),
           onTap: () {},
         ),
       ],
